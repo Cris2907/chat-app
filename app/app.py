@@ -1,9 +1,7 @@
-"""
-Main application entry point.
-"""
-from app import create_app, socketio
+from flask import Flask
 
-app = create_app()
+app = Flask(__name__)
 
-if __name__ == '__main__':
-    socketio.run(app, debug=True, host='0.0.0.0', port=5000)
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
